@@ -38,13 +38,64 @@ LEARNWISE is a web application that allows users to create, manage, and track th
 ### Prerequisites
 - Node.js and npm installed.
 - Python 3.9+ installed.
+  
+### Get API Keys
+You will need API keys for external services. Create accounts and generate keys from the following services:
+
+- Google API Key
+- Google Custom Search CX ID
+- YouTube API Key
+- GROQ API Key
+
+Once obtained, create a .env file inside the backend/ directory with the following content:
+```bash
+GOOGLE_API_KEY=your_google_api_key
+CX_ID=your_google_cx_id
+YOUTUBE_API_KEY=your_youtube_api_key
+GROQ_API_KEY=your_groq_api_key
+```
+## Run Backend
+```bash
+cd backend
+python -m venv venv
+```
+Activate the virtual environment
+- On Windows:
+```bash
+venv\Scripts\activate
+```
+- On macOS/Linux:
+```bash
+source venv/bin/activate
+```
+
+Install Python dependencies
+```bash
+pip install -r requirements.txt
+```
+Start the backend server
+```bash
+ uvicorn app.main:app --reload
+```
+## Run Frontend 
+Open new terminal from base directory:
+```bash
+cd frontend
+```
+Install npm dependencies (run once):
+```bash
+npm install
+```
+Start the development server:
+```bash
+npm run dev
+```
 ## Usage
-- Open the frontend in your browser at http://localhost:5173.
 - Sign up or log in to your account.
 - Create a new roadmap by providing the skill, timeframe, and target level.
 - Visualize your roadmap, mark nodes as completed, and track your progress.
 - View completed roadmaps in the "Completed" section.
-
+---
 ## API Endpoints
 ### Authentication
 - POST /api/auth/signup: Sign up a new user.
@@ -62,3 +113,4 @@ LEARNWISE is a web application that allows users to create, manage, and track th
 - FastAPI for the backend framework.
 - Tailwind CSS for styling.
 - Lucide React for icons.
+
